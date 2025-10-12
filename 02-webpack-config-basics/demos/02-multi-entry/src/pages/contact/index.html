@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- CSS 通过 JavaScript import 导入，不需要 link 标签 -->
+</head>
+<body>
+  <div class="container">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="nav-brand">多页应用示例</div>
+      <div class="nav-links">
+        <a href="home.html">首页</a>
+        <a href="about.html">关于</a>
+        <a href="contact.html" class="active">联系</a>
+      </div>
+    </nav>
+    
+    <!-- 页面内容 -->
+    <main class="content">
+      <div class="hero">
+        <h1>📧 联系我们</h1>
+        <p class="subtitle">提交表单测试多入口应用的交互</p>
+      </div>
+      
+      <div class="form-container">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">邮箱：</label>
+            <input type="email" id="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">留言：</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">提交</button>
+        </form>
+      </div>
+      
+      <div class="info-box">
+        <h2>🔍 观察要点</h2>
+        <ul>
+          <li><strong>Network 面板</strong>：每个页面只加载自己的 JS 文件</li>
+          <li><strong>Sources 面板</strong>：查看代码分割效果</li>
+          <li><strong>生产构建</strong>：公共代码会被提取到 common.js</li>
+        </ul>
+      </div>
+      
+      <div class="demo-section">
+        <h3>📊 构建信息</h3>
+        <div class="output" id="output"></div>
+      </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+      <p>© 2024 Webpack 学习项目 | 页面：<span id="page-name"></span></p>
+    </footer>
+  </div>
+</body>
+</html>
+

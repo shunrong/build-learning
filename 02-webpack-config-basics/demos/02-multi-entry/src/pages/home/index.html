@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- <link rel="stylesheet" href="../../shared/styles.css"> -->
+  <!-- CSS 通过 JavaScript import 导入，不需要 link 标签 -->
+</head>
+<body>
+  <div class="container">
+    <!-- 导航栏（公共组件） -->
+    <nav class="navbar">
+      <div class="nav-brand">多页应用示例</div>
+      <div class="nav-links">
+        <a href="home.html" class="active">首页</a>
+        <a href="about.html">关于</a>
+        <a href="contact.html">联系</a>
+      </div>
+    </nav>
+    
+    <!-- 页面内容 -->
+    <main class="content">
+      <div class="hero">
+        <h1>🏠 欢迎来到首页</h1>
+        <p class="subtitle">这是一个多入口 Webpack 应用示例</p>
+      </div>
+      
+      <div class="info-box">
+        <h2>📦 多入口配置</h2>
+        <pre><code>entry: {
+  home: './src/pages/home/index.js',
+  about: './src/pages/about/index.js',
+  contact: './src/pages/contact/index.js'
+}</code></pre>
+      </div>
+      
+      <div class="features">
+        <div class="feature-card">
+          <h3>✅ 独立页面</h3>
+          <p>每个页面有自己的入口文件和 HTML</p>
+        </div>
+        <div class="feature-card">
+          <h3>✅ 代码复用</h3>
+          <p>共享的工具函数和组件会被复用</p>
+        </div>
+        <div class="feature-card">
+          <h3>✅ 按需加载</h3>
+          <p>每个页面只加载自己需要的代码</p>
+        </div>
+      </div>
+      
+      <div class="demo-section">
+        <h3>🎮 功能演示</h3>
+        <button id="btn-log">📝 打印日志</button>
+        <button id="btn-count">🔢 计数器</button>
+        <div class="output" id="output">点击按钮查看效果...</div>
+      </div>
+    </main>
+    
+    <!-- 页脚（公共组件） -->
+    <footer class="footer">
+      <p>© 2024 Webpack 学习项目 | 页面：<span id="page-name"></span></p>
+    </footer>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webpack Dev Server 基础配置</title>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Webpack Dev Server 基础配置演示</h1>
+    
+    <div class="section">
+      <h2>📖 当前演示的特性</h2>
+      <ul class="feature-list">
+        <li>✅ 自动打开浏览器</li>
+        <li>✅ 自动刷新页面</li>
+        <li>✅ 热模块替换 (HMR)</li>
+        <li>✅ 静态文件服务</li>
+        <li>✅ Gzip 压缩</li>
+        <li>✅ 编译进度显示</li>
+        <li>✅ 错误覆盖层</li>
+        <li>✅ Source Map 支持</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🎨 样式热更新测试</h2>
+      <p>修改 <code>styles.css</code> 文件，观察样式实时更新（无需刷新页面）</p>
+      <div class="color-box" id="colorBox">
+        这是一个彩色方块，试着修改它的颜色！
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>⚡ JavaScript 更新测试</h2>
+      <p>修改 <code>index.js</code> 中的计数器逻辑，页面会自动刷新</p>
+      <div class="counter">
+        <button id="decrementBtn">-</button>
+        <span id="counter">0</span>
+        <button id="incrementBtn">+</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📁 静态文件服务测试</h2>
+      <p>访问 <code>/static/data.json</code> 查看静态文件服务</p>
+      <button id="fetchBtn">加载静态文件</button>
+      <pre id="dataDisplay"></pre>
+    </div>
+
+    <div class="section">
+      <h2>🔧 配置说明</h2>
+      <div class="config-info">
+        <h3>当前配置项：</h3>
+        <ul>
+          <li><strong>port:</strong> 'auto' - 自动寻找可用端口</li>
+          <li><strong>open:</strong> true - 自动打开浏览器</li>
+          <li><strong>hot:</strong> true - 启用热模块替换</li>
+          <li><strong>compress:</strong> true - 启用 Gzip 压缩</li>
+          <li><strong>historyApiFallback:</strong> true - SPA 路由支持</li>
+          <li><strong>static:</strong> 配置静态文件目录</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎯 实验建议</h2>
+      <ol class="experiment-list">
+        <li>修改 CSS 文件，观察样式热更新</li>
+        <li>修改 JS 文件，观察页面自动刷新</li>
+        <li>制造语法错误，观察错误覆盖层</li>
+        <li>访问 <code>/static/data.json</code> 测试静态文件服务</li>
+        <li>在浏览器控制台查看编译日志</li>
+        <li>尝试修改 webpack.config.js 的配置项</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
+

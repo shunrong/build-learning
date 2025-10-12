@@ -1,0 +1,26 @@
+{
+  "name": "03-proxy-demo",
+  "version": "1.0.0",
+  "description": "Webpack Dev Server 代理配置演示",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "mock-server": "node mock-server.js"
+  },
+  "keywords": [
+    "webpack",
+    "proxy",
+    "cors"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "html-webpack-plugin": "^5.5.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}

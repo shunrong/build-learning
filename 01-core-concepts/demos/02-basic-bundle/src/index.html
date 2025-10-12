@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 2: Webpack 打包示例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    .advantages {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    
+    .advantages h2 {
+      color: #155724;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .advantages ul {
+      margin-left: 20px;
+    }
+    
+    .advantages li {
+      color: #155724;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    
+    .calculator {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    input {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #28a745;
+      color: white;
+      transition: all 0.3s;
+    }
+    
+    button:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+    
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      background: white;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #28a745;
+      text-align: center;
+    }
+    
+    .console-output {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .console-output .success {
+      color: #4ec9b0;
+    }
+    
+    .console-output .info {
+      color: #4fc1ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Webpack 打包示例</h1>
+    <p class="subtitle">同样的计算器应用，使用 Webpack 打包后的效果</p>
+    
+    <div class="advantages">
+      <h2>✅ Webpack 解决的问题：</h2>
+      <ul>
+        <li><strong>模块化</strong>：使用 ES Modules，每个文件都是独立的模块</li>
+        <li><strong>单文件输出</strong>：所有代码打包成一个 bundle.js（打开 Network 查看）</li>
+        <li><strong>依赖自动管理</strong>：Webpack 自动分析依赖关系</li>
+        <li><strong>无全局污染</strong>：所有变量都在模块作用域内</li>
+        <li><strong>代码压缩</strong>：生产模式下自动压缩代码</li>
+        <li><strong>现代语法</strong>：可以使用 ES6+、import/export</li>
+      </ul>
+    </div>
+    
+    <div class="calculator">
+      <div class="input-group">
+        <input type="number" id="num1" placeholder="输入第一个数字" value="10">
+        <input type="number" id="num2" placeholder="输入第二个数字" value="5">
+      </div>
+      
+      <div class="buttons">
+        <button id="add-btn">➕ 加法</button>
+        <button id="subtract-btn">➖ 减法</button>
+        <button id="multiply-btn">✖️ 乘法</button>
+        <button id="divide-btn">➗ 除法</button>
+      </div>
+      
+      <div class="result" id="result">结果将显示在这里</div>
+    </div>
+    
+    <h3 style="margin-bottom: 10px;">📊 控制台输出（查看模块化效果）</h3>
+    <div class="console-output" id="console"></div>
+  </div>
+  
+  <!-- 
+    ✅ 注意：这里没有多个 script 标签！
+    HtmlWebpackPlugin 会自动注入打包后的 bundle.js
+    打开开发者工具的 Network 面板，你会发现只有 1 个 JS 文件！
+  -->
+</body>
+</html>
+

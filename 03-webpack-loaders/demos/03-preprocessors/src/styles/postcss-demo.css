@@ -1,0 +1,147 @@
+/* PostCSS (Autoprefixer) 演示 */
+
+.postcss-section {
+  background: #e3f2fd;
+}
+
+/* Flexbox（需要添加前缀） */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.flex-item {
+  flex: 1;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #2196f3;
+}
+
+/* Grid（需要添加前缀） */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.grid-item {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #2196f3;
+}
+
+/* user-select（需要添加前缀） */
+.autoprefixer-info {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  user-select: none;
+}
+
+.autoprefixer-info p {
+  font-weight: bold;
+  color: #1976d2;
+  margin-bottom: 15px;
+}
+
+.autoprefixer-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.autoprefixer-info li {
+  padding: 8px 0;
+  color: #424242;
+}
+
+.autoprefixer-info li::before {
+  content: "▸ ";
+  color: #2196f3;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Loader 链演示 */
+.loader-chain-section {
+  background: #fff3e0;
+}
+
+.chain-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.chain-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: 2px solid #ff9800;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: #ff9800;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.step-content h4 {
+  color: #e65100;
+  margin-bottom: 5px;
+}
+
+.step-content p {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.chain-arrow {
+  font-size: 2em;
+  color: #ff9800;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .flex-container {
+    flex-direction: column;
+  }
+  
+  .chain-diagram {
+    flex-direction: column;
+  }
+  
+  .chain-arrow {
+    transform: rotate(90deg);
+  }
+}
+

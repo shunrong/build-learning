@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 预处理器演示</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>CSS 预处理器演示</h1>
+      <p class="subtitle">Sass, Less, PostCSS</p>
+    </header>
+    
+    <section class="demo-section sass-section">
+      <h2>1. Sass/SCSS 特性</h2>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>变量</h3>
+          <div class="color-palette">
+            <div class="color-box primary"></div>
+            <div class="color-box secondary"></div>
+            <div class="color-box accent"></div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <h3>嵌套</h3>
+          <nav class="nested-nav">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+          </nav>
+        </div>
+        
+        <div class="feature-card">
+          <h3>Mixin</h3>
+          <button class="btn-mixin">Mixin 按钮</button>
+        </div>
+        
+        <div class="feature-card">
+          <h3>函数</h3>
+          <div class="function-demo">
+            <div class="lighten-box"></div>
+            <div class="darken-box"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="demo-section less-section">
+      <h2>2. Less 特性</h2>
+      
+      <div class="less-demo">
+        <div class="less-box">
+          <h3>Less 变量</h3>
+          <p>使用 @ 定义变量</p>
+        </div>
+        
+        <div class="less-mixin-demo">
+          <div class="rounded-box">圆角盒子</div>
+          <div class="shadowed-box">阴影盒子</div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="demo-section postcss-section">
+      <h2>3. PostCSS（Autoprefixer）</h2>
+      
+      <div class="autoprefixer-demo">
+        <div class="flex-container">
+          <div class="flex-item">Item 1</div>
+          <div class="flex-item">Item 2</div>
+          <div class="flex-item">Item 3</div>
+        </div>
+        
+        <div class="grid-container">
+          <div class="grid-item">Grid 1</div>
+          <div class="grid-item">Grid 2</div>
+          <div class="grid-item">Grid 3</div>
+        </div>
+      </div>
+      
+      <div class="autoprefixer-info">
+        <p>💡 打开开发者工具，查看 CSS：</p>
+        <ul>
+          <li><code>display: flex</code> 会自动添加 <code>-webkit-box</code> 等前缀</li>
+          <li><code>display: grid</code> 会添加 <code>-ms-grid</code> 等前缀</li>
+          <li><code>user-select: none</code> 会添加所有浏览器前缀</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="demo-section loader-chain-section">
+      <h2>4. Loader 链执行顺序</h2>
+      
+      <div class="chain-diagram">
+        <div class="chain-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>sass-loader</h4>
+            <p>Sass → CSS</p>
+          </div>
+        </div>
+        
+        <div class="chain-arrow">→</div>
+        
+        <div class="chain-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>postcss-loader</h4>
+            <p>添加浏览器前缀</p>
+          </div>
+        </div>
+        
+        <div class="chain-arrow">→</div>
+        
+        <div class="chain-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>css-loader</h4>
+            <p>CSS → JS 模块</p>
+          </div>
+        </div>
+        
+        <div class="chain-arrow">→</div>
+        
+        <div class="chain-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>style-loader</h4>
+            <p>注入 DOM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+

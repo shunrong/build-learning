@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">🏠 MPA Demo</a>
+      <ul class="nav-menu">
+        <li><a href="/">首页</a></li>
+        <li><a href="/about.html">关于</a></li>
+        <li><a href="/contact.html">联系</a></li>
+        <li><a href="/dashboard.html" class="active">仪表盘</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="page-header">
+      <h1>📊 数据仪表盘</h1>
+      <p>实时数据统计和分析</p>
+    </header>
+
+    <section class="content">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-info">
+            <h3>总用户数</h3>
+            <p class="stat-value" id="totalUsers">-</p>
+            <p class="stat-change positive">+12.5%</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">📄</div>
+          <div class="stat-info">
+            <h3>页面访问</h3>
+            <p class="stat-value" id="pageViews">-</p>
+            <p class="stat-change positive">+8.3%</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-info">
+            <h3>平均停留</h3>
+            <p class="stat-value" id="avgTime">-</p>
+            <p class="stat-change negative">-3.2%</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-info">
+            <h3>总收入</h3>
+            <p class="stat-value" id="revenue">-</p>
+            <p class="stat-change positive">+15.7%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📈 最近访问记录</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>页面</th>
+              <th>用户</th>
+              <th>停留时间</th>
+            </tr>
+          </thead>
+          <tbody id="visitsTable">
+            <tr>
+              <td colspan="4" style="text-align: center; color: #999;">加载中...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>🔔 系统通知</h2>
+        <div class="notifications">
+          <div class="notification notification-info">
+            <span class="notification-icon">ℹ️</span>
+            <div class="notification-content">
+              <h4>系统更新</h4>
+              <p>新版本已发布，包含性能优化和bug修复</p>
+              <span class="notification-time">2小时前</span>
+            </div>
+          </div>
+          
+          <div class="notification notification-success">
+            <span class="notification-icon">✅</span>
+            <div class="notification-content">
+              <h4>备份完成</h4>
+              <p>数据库备份已成功完成</p>
+              <span class="notification-time">5小时前</span>
+            </div>
+          </div>
+          
+          <div class="notification notification-warning">
+            <span class="notification-icon">⚠️</span>
+            <div class="notification-content">
+              <h4>磁盘空间警告</h4>
+              <p>服务器磁盘使用率已达 85%</p>
+              <span class="notification-time">1天前</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>当前页面：<strong id="current-page">仪表盘</strong></p>
+    <p>页面加载时间：<strong id="load-time">-</strong> ms</p>
+    <p>最后更新：<strong id="updateTime">-</strong></p>
+  </footer>
+</body>
+</html>
+

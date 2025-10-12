@@ -1,0 +1,3 @@
+这是一个测试文件，用于演示 CopyWebpackPlugin 的功能。
+
+它会被复制到输出目录的 public 文件夹中。

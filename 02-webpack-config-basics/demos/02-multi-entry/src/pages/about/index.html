@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- CSS 通过 JavaScript import 导入，不需要 link 标签 -->
+</head>
+<body>
+  <div class="container">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="nav-brand">多页应用示例</div>
+      <div class="nav-links">
+        <a href="home.html">首页</a>
+        <a href="about.html" class="active">关于</a>
+        <a href="contact.html">联系</a>
+      </div>
+    </nav>
+    
+    <!-- 页面内容 -->
+    <main class="content">
+      <div class="hero">
+        <h1>ℹ️ 关于我们</h1>
+        <p class="subtitle">了解多入口应用的原理和优势</p>
+      </div>
+      
+      <div class="info-box">
+        <h2>🤔 什么是多入口应用（MPA）？</h2>
+        <p>Multi-Page Application（MPA）是指有多个独立页面的应用，每个页面有自己的 HTML 和 JS 入口。</p>
+      </div>
+      
+      <div class="comparison">
+        <div class="col">
+          <h3>单页应用 (SPA)</h3>
+          <ul>
+            <li>✅ 一个 HTML 文件</li>
+            <li>✅ 路由在前端处理</li>
+            <li>✅ 页面切换无刷新</li>
+            <li>⚠️ 首屏加载慢</li>
+            <li>⚠️ SEO 不友好</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>多页应用 (MPA)</h3>
+          <ul>
+            <li>✅ 多个 HTML 文件</li>
+            <li>✅ 路由由服务器处理</li>
+            <li>✅ SEO 友好</li>
+            <li>✅ 首屏加载快</li>
+            <li>⚠️ 页面切换需刷新</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="info-box" style="background: #e8f5e9; border-color: #4caf50;">
+        <h2 style="color: #2e7d32;">💡 适用场景</h2>
+        <ul style="color: #2e7d32;">
+          <li>官网、博客、电商网站</li>
+          <li>需要 SEO 的项目</li>
+          <li>页面间关联度低的应用</li>
+        </ul>
+      </div>
+      
+      <div class="demo-section">
+        <h3>🎮 功能演示</h3>
+        <button id="btn-info">ℹ️ 显示页面信息</button>
+        <button id="btn-shared">🔗 调用共享模块</button>
+        <div class="output" id="output">点击按钮查看效果...</div>
+      </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+      <p>© 2024 Webpack 学习项目 | 页面：<span id="page-name"></span></p>
+    </footer>
+  </div>
+</body>
+</html>
+

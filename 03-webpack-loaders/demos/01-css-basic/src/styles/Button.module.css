@@ -1,0 +1,50 @@
+/* CSS Modules: Button 组件 */
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  outline: none;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* 主要按钮 */
+.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.primary:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #65398c 100%);
+}
+
+/* 次要按钮 */
+.secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.secondary:hover {
+  background: #5a6268;
+}
+
+/* 
+  注意：
+  1. 类名会被哈希化，如 .button → .Button_button__a1b2c
+  2. 避免全局命名冲突
+  3. 组件样式隔离
+*/
+

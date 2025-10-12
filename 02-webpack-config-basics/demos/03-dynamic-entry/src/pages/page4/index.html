@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    h1 { color: #333; }
+    .info { background: #fce4ec; padding: 20px; border-left: 4px solid #e91e63; margin: 20px 0; }
+    .code { background: #f5f5f5; padding: 15px; border-radius: 4px; overflow-x: auto; }
+    nav { margin: 20px 0; }
+    nav a { 
+      display: inline-block;
+      margin-right: 10px;
+      padding: 8px 16px;
+      background: #fa709a;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    nav a:hover { background: #d8517a; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📄 Page 4</h1>
+    <p>测试：尝试添加 <strong>page5</strong> 文件夹</p>
+    
+    <div class="info">
+      <h3>🧪 动手实验</h3>
+      <p><strong>步骤 1</strong>：创建新页面</p>
+      <div class="code"><pre>mkdir src/pages/page5
+cp src/pages/page1/* src/pages/page5/</pre></div>
+      
+      <p><strong>步骤 2</strong>：重新构建</p>
+      <div class="code"><pre>npm run build</pre></div>
+      
+      <p><strong>结果</strong>：page5 会自动被发现和打包！</p>
+    </div>
+    
+    <nav>
+      <a href="page1.html">Page 1</a>
+      <a href="page2.html">Page 2</a>
+      <a href="page3.html">Page 3</a>
+      <a href="page4.html">Page 4</a>
+    </nav>
+    
+    <div id="content"></div>
+  </div>
+</body>
+</html>
+

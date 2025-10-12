@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Loader 基础演示</title>
+</head>
+<body>
+  <div class="container">
+    <h1>CSS Loader 基础演示</h1>
+    
+    <section class="demo-section">
+      <h2>1. 普通 CSS（style-loader / MiniCssExtractPlugin）</h2>
+      <div class="normal-box">
+        <p>这个盒子使用普通 CSS 样式</p>
+        <p>开发环境：通过 <code>&lt;style&gt;</code> 标签注入</p>
+        <p>生产环境：提取到独立的 CSS 文件</p>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>2. CSS Modules</h2>
+      <div id="modules-container">
+        <!-- 通过 JS 动态插入 -->
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>3. @import 和 url() 处理</h2>
+      <div class="import-demo">
+        <p>这个样式来自 @import 导入的 base.css</p>
+      </div>
+      <div class="url-demo">
+        <p>背景图片通过 url() 引用</p>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>4. 开发工具面板检查</h2>
+      <div class="inspect-tips">
+        <p>打开浏览器开发者工具，观察：</p>
+        <ul>
+          <li><strong>开发模式</strong>：在 <code>&lt;head&gt;</code> 中查找 <code>&lt;style&gt;</code> 标签</li>
+          <li><strong>生产模式</strong>：在 Network 面板查看独立的 CSS 文件</li>
+          <li><strong>CSS Modules</strong>：类名被哈希化（如 <code>_1a2b3c</code>）</li>
+          <li><strong>HMR</strong>：修改 CSS 文件，页面无需刷新即可更新样式</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+

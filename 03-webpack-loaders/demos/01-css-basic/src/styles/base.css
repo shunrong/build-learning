@@ -1,0 +1,22 @@
+/* 这个文件被 main.css 通过 @import 引入 */
+
+.import-demo {
+  padding: 20px;
+  background: #d4edda;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.import-demo p {
+  color: #155724;
+  font-weight: 500;
+}
+
+.import-demo::before {
+  content: "✓ ";
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+

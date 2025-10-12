@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    h1 { color: #333; }
+    .info { background: #fff3cd; padding: 20px; border-left: 4px solid #ffc107; margin: 20px 0; }
+    nav { margin: 20px 0; }
+    nav a { 
+      display: inline-block;
+      margin-right: 10px;
+      padding: 8px 16px;
+      background: #f5576c;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    nav a:hover { background: #d43f54; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📄 Page 2</h1>
+    <p>这是通过<strong>glob 模式</strong>自动发现的页面</p>
+    
+    <div class="info">
+      <h3>🔍 如何工作？</h3>
+      <pre><code>// webpack.config.js
+const files = glob.sync('./src/pages/*/index.js');
+
+files.forEach(file => {
+  const pageName = extractName(file);
+  entries[pageName] = file;
+});</code></pre>
+    </div>
+    
+    <nav>
+      <a href="page1.html">Page 1</a>
+      <a href="page2.html">Page 2</a>
+      <a href="page3.html">Page 3</a>
+      <a href="page4.html">Page 4</a>
+    </nav>
+    
+    <div id="content"></div>
+  </div>
+</body>
+</html>
+

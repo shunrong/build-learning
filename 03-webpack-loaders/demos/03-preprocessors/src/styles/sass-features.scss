@@ -1,0 +1,164 @@
+// Sass 特性演示
+
+// 导入现代 Sass 模块
+@use 'sass:color';
+
+// 1. 变量
+$color-primary: #667eea;
+$color-secondary: #764ba2;
+$color-accent: #f093fb;
+
+// 2. Mixin（混入）
+@mixin button-style($bg-color) {
+  padding: 10px 20px;
+  background: $bg-color;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// 3. 函数（使用现代 Sass 颜色 API）
+@function lighten-color($color, $amount) {
+  @return color.adjust($color, $lightness: $amount);
+}
+
+@function darken-color($color, $amount) {
+  @return color.adjust($color, $lightness: -$amount);
+}
+
+// 使用 Sass 特性
+.sass-section {
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #dee2e6;
+    
+    h3 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+  }
+  
+  // 1. 变量演示
+  .color-palette {
+    display: flex;
+    gap: 10px;
+    
+    .color-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      
+      &.primary {
+        background: $color-primary;
+      }
+      
+      &.secondary {
+        background: $color-secondary;
+      }
+      
+      &.accent {
+        background: $color-accent;
+      }
+    }
+  }
+  
+  // 2. 嵌套演示
+  .nested-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    .nav-link {
+      padding: 8px 12px;
+      background: #f8f9fa;
+      color: $color-primary;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+      
+      &:hover {
+        background: $color-primary;
+        color: white;
+      }
+      
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+  
+  // 3. Mixin 演示
+  .btn-mixin {
+    @include button-style($color-primary);
+    width: 100%;
+  }
+  
+  // 4. 函数演示
+  .function-demo {
+    display: flex;
+    gap: 10px;
+    
+    .lighten-box,
+    .darken-box {
+      flex: 1;
+      height: 60px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.85em;
+    }
+    
+    .lighten-box {
+      background: lighten-color($color-primary, 10%);
+      
+      &::before {
+        content: 'Lighten';
+      }
+    }
+    
+    .darken-box {
+      background: darken-color($color-primary, 10%);
+      
+      &::before {
+        content: 'Darken';
+      }
+    }
+  }
+}
+
+// 4. 循环和条件（进阶特性）
+@for $i from 1 through 3 {
+  .feature-card:nth-child(#{$i}) {
+    animation: fadeInUp 0.5s ease #{$i * 0.1}s both;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    h1 { color: #333; }
+    .info { background: #e8f5e9; padding: 20px; border-left: 4px solid #4caf50; margin: 20px 0; }
+    nav { margin: 20px 0; }
+    nav a { 
+      display: inline-block;
+      margin-right: 10px;
+      padding: 8px 16px;
+      background: #00f2fe;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    nav a:hover { background: #00c8d4; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📄 Page 3</h1>
+    <p>添加新页面<strong>无需修改配置</strong></p>
+    
+    <div class="info">
+      <h3>💡 实际应用场景</h3>
+      <ul>
+        <li>📱 <strong>微前端</strong>：自动发现子应用</li>
+        <li>🔌 <strong>插件系统</strong>：自动加载插件</li>
+        <li>📊 <strong>报表系统</strong>：自动发现报表页面</li>
+        <li>🎨 <strong>主题系统</strong>：自动发现主题文件</li>
+      </ul>
+    </div>
+    
+    <nav>
+      <a href="page1.html">Page 1</a>
+      <a href="page2.html">Page 2</a>
+      <a href="page3.html">Page 3</a>
+      <a href="page4.html">Page 4</a>
+    </nav>
+    
+    <div id="content"></div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手写 Dev Server 演示</title>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>🛠️ 手写简易 Webpack Dev Server</h1>
+      <p class="subtitle">理解 webpack-dev-server 的底层实现原理</p>
+    </header>
+
+    <div class="content">
+      <section class="section">
+        <h2>📦 核心功能实现</h2>
+        <div class="features">
+          <div class="feature-card">
+            <span class="icon">🌐</span>
+            <h3>Express 服务器</h3>
+            <p>基于 Express 提供 HTTP 静态文件服务</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="icon">⚙️</span>
+            <h3>Webpack 编译</h3>
+            <p>集成 Webpack Compiler API，实现自动编译</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="icon">👀</span>
+            <h3>文件监听</h3>
+            <p>使用 Chokidar 监听源文件变化</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="icon">🔌</span>
+            <h3>WebSocket 通信</h3>
+            <p>实时推送编译状态和更新通知</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="icon">🔄</span>
+            <h3>Live Reload</h3>
+            <p>文件变化后自动刷新页面</p>
+          </div>
+          
+          <div class="feature-card">
+            <span class="icon">🎨</span>
+            <h3>CSS HMR</h3>
+            <p>样式热更新，无需刷新页面</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>🔬 实验指南</h2>
+        <div class="experiments">
+          <div class="experiment">
+            <h3>实验 1：Live Reload</h3>
+            <ol>
+              <li>修改 <code>src/index.js</code> 中的代码</li>
+              <li>观察控制台输出编译信息</li>
+              <li>页面自动刷新</li>
+            </ol>
+            <div class="result" id="js-output">
+              当前计数：<span id="counter">0</span>
+            </div>
+            <button class="btn" id="incrementBtn">增加啊计数</button>
+          </div>
+          
+          <div class="experiment">
+            <h3>实验 2：CSS HMR</h3>
+            <ol>
+              <li>修改 <code>src/styles.css</code> 中的颜色</li>
+              <li>观察样式<strong>无刷新</strong>更新</li>
+              <li>查看控制台的 HMR 日志</li>
+            </ol>
+            <div class="color-box" id="colorBox">
+              修改我的颜色试试！
+            </div>
+          </div>
+          
+          <div class="experiment">
+            <h3>实验 3：WebSocket 通信</h3>
+            <ol>
+              <li>打开浏览器控制台</li>
+              <li>查看 WebSocket 连接状态</li>
+              <li>观察实时消息推送</li>
+            </ol>
+            <div class="websocket-status">
+              <div class="status-indicator" id="wsStatus"></div>
+              <span>WebSocket 状态：<span id="wsStatusText">连接中...</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>📊 实现原理对比</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>功能</th>
+              <th>官方 webpack-dev-server</th>
+              <th>我们的实现</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HTTP 服务</td>
+              <td>Express + webpack-dev-middleware</td>
+              <td>✅ Express</td>
+            </tr>
+            <tr>
+              <td>文件监听</td>
+              <td>Webpack Watch API</td>
+              <td>✅ Webpack Watch + Chokidar</td>
+            </tr>
+            <tr>
+              <td>实时通信</td>
+              <td>WebSocket (sockjs/ws)</td>
+              <td>✅ ws 库</td>
+            </tr>
+            <tr>
+              <td>Live Reload</td>
+              <td>✅ 支持</td>
+              <td>✅ 支持</td>
+            </tr>
+            <tr>
+              <td>CSS HMR</td>
+              <td>✅ 完整支持</td>
+              <td>✅ 基础支持</td>
+            </tr>
+            <tr>
+              <td>JS HMR</td>
+              <td>✅ 完整支持</td>
+              <td>⚠️ 未实现（降级为刷新）</td>
+            </tr>
+            <tr>
+              <td>错误覆盖层</td>
+              <td>✅ 支持</td>
+              <td>✅ 支持</td>
+            </tr>
+            <tr>
+              <td>代理</td>
+              <td>✅ http-proxy-middleware</td>
+              <td>❌ 未实现</td>
+            </tr>
+            <tr>
+              <td>HTTPS</td>
+              <td>✅ 支持</td>
+              <td>❌ 未实现</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>💡 核心代码解析</h2>
+        <div class="code-explanation">
+          <h3>1. Webpack Compiler Hooks</h3>
+          <pre class="code-block">compiler.hooks.done.tap('CustomDevServer', (stats) => {
+  // 编译完成，通知客户端
+  broadcastMessage({ type: 'ok' });
+});</pre>
+          
+          <h3>2. WebSocket 广播</h3>
+          <pre class="code-block">function broadcastMessage(message) {
+  clients.forEach((client) => {
+    client.send(JSON.stringify(message));
+  });
+}</pre>
+          
+          <h3>3. CSS 热更新</h3>
+          <pre class="code-block">function updateCSS(newContent) {
+  const styleTags = document.querySelectorAll('style');
+  styleTags[0].textContent = newContent;
+}</pre>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>🎓 学习要点</h2>
+        <div class="learning-points">
+          <div class="point">
+            <h4>1. Express 中间件机制</h4>
+            <p>理解如何使用中间件拦截请求，注入客户端代码</p>
+          </div>
+          
+          <div class="point">
+            <h4>2. Webpack Compiler API</h4>
+            <p>掌握 Webpack 的编程式 API，实现自定义编译流程</p>
+          </div>
+          
+          <div class="point">
+            <h4>3. WebSocket 双向通信</h4>
+            <p>实现服务器与客户端的实时消息推送</p>
+          </div>
+          
+          <div class="point">
+            <h4>4. 文件监听策略</h4>
+            <p>使用 Chokidar 监听文件变化，触发不同的更新策略</p>
+          </div>
+          
+          <div class="point">
+            <h4>5. HMR 降级机制</h4>
+            <p>CSS 支持热更新，JS 降级为 Live Reload</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>🛠️ 自定义 Dev Server v1.0</p>
+    <p>查看控制台了解更多运行细节</p>
+  </footer>
+</body>
+</html>
+

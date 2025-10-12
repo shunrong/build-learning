@@ -1,0 +1,22 @@
+{
+  "en": {
+    "title": "i18n Loader Demo",
+    "welcome": "Welcome to Webpack custom loader demo!",
+    "description": "This content is loaded by i18n-loader based on the locale configuration.",
+    "features": {
+      "feature1": "Automatic locale selection",
+      "feature2": "Fallback to default language",
+      "feature3": "Build-time optimization"
+    }
+  },
+  "zh-CN": {
+    "title": "i18n Loader 演示",
+    "welcome": "欢迎来到 Webpack 自定义 Loader 演示！",
+    "description": "这段内容由 i18n-loader 根据语言配置加载。",
+    "features": {
+      "feature1": "自动选择语言环境",
+      "feature2": "回退到默认语言",
+      "feature3": "构建时优化"
+    }
+  }
+}

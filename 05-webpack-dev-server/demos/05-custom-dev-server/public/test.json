@@ -1,0 +1,5 @@
+{
+  "message": "这是一个静态文件",
+  "path": "/static/test.json",
+  "description": "通过 Express static 中间件提供"
+}

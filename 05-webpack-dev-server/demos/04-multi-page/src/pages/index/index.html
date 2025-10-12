@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">🏠 MPA Demo</a>
+      <ul class="nav-menu">
+        <li><a href="/" class="active">首页</a></li>
+        <li><a href="/about.html">关于</a></li>
+        <li><a href="/contact.html">联系</a></li>
+        <li><a href="/dashboard.html">仪表盘</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="hero">
+      <h1>🌟 欢迎来到首页</h1>
+      <p class="subtitle">多页面应用 (MPA) Dev Server 配置演示</p>
+    </header>
+
+    <section class="content">
+      <div class="card">
+        <h2>🎯 什么是多页面应用？</h2>
+        <p>多页面应用（MPA）是指有多个独立的 HTML 页面，每个页面有自己的入口文件。与单页面应用（SPA）不同，MPA 的页面切换会重新加载。</p>
+        <div class="comparison">
+          <div class="compare-item">
+            <h3>MPA 特点</h3>
+            <ul>
+              <li>✅ 多个独立页面</li>
+              <li>✅ 每个页面独立的资源</li>
+              <li>✅ SEO 友好</li>
+              <li>✅ 首屏加载快</li>
+              <li>⚠️ 页面切换有白屏</li>
+            </ul>
+          </div>
+          <div class="compare-item">
+            <h3>SPA 特点</h3>
+            <ul>
+              <li>✅ 单个 HTML 页面</li>
+              <li>✅ 前端路由控制</li>
+              <li>✅ 流畅的切换</li>
+              <li>⚠️ 首屏加载慢</li>
+              <li>⚠️ SEO 需要特殊处理</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📦 当前配置</h2>
+        <pre class="code-block">entry: {
+  index: './src/pages/index/index.js',
+  about: './src/pages/about/index.js',
+  contact: './src/pages/contact/index.js',
+  dashboard: './src/pages/dashboard/index.js'
+}</pre>
+        <p>每个页面都有独立的入口文件和 HTML 模板。</p>
+      </div>
+
+      <div class="card">
+        <h2>🚀 快速导航</h2>
+        <div class="nav-cards">
+          <a href="/about.html" class="nav-card">
+            <span class="nav-icon">📖</span>
+            <h3>关于我们</h3>
+            <p>了解更多信息</p>
+          </a>
+          <a href="/contact.html" class="nav-card">
+            <span class="nav-icon">📧</span>
+            <h3>联系我们</h3>
+            <p>与我们取得联系</p>
+          </a>
+          <a href="/dashboard.html" class="nav-card">
+            <span class="nav-icon">📊</span>
+            <h3>仪表盘</h3>
+            <p>查看数据统计</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>💡 实验建议</h2>
+        <ol class="experiment-list">
+          <li>点击导航栏切换页面，观察页面重新加载</li>
+          <li>修改当前页面的 CSS，观察 HMR 效果</li>
+          <li>查看网络面板，注意每个页面只加载自己的 JS</li>
+          <li>尝试刷新页面，观察 URL 保持不变</li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>当前页面：<strong id="current-page">首页</strong></p>
+    <p>页面加载时间：<strong id="load-time">-</strong> ms</p>
+  </footer>
+</body>
+</html>
+

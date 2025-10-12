@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义 Loader 演示</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>手写自定义 Loader</h1>
+      <p class="subtitle">实践 Loader API</p>
+    </header>
+    
+    <section class="demo-section">
+      <h2>1. Markdown Loader</h2>
+      <p>将 Markdown 文件转换为 HTML</p>
+      <div id="markdown-content" class="content-box"></div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>2. Banner Loader</h2>
+      <p>在文件顶部添加注释横幅</p>
+      <div class="info-box">
+        <p>打开开发者工具 → Sources，查看 JavaScript 文件顶部的注释</p>
+        <button id="show-source" class="btn">查看源码</button>
+        <pre id="source-preview" class="code-preview"></pre>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>3. Remove Console Loader</h2>
+      <p>移除 console.log 语句（生产环境）</p>
+      <div class="console-demo">
+        <button id="test-console" class="btn">测试 console.log</button>
+        <p class="hint">
+          当前环境：<code id="env-info"></code><br>
+          生产模式下，下面的 console.log 会被移除
+        </p>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>4. i18n Loader</h2>
+      <p>根据语言环境加载国际化文件</p>
+      <div class="i18n-demo">
+        <div class="locale-selector">
+          <label>切换语言：</label>
+          <button class="btn-locale" data-locale="zh-CN">中文</button>
+          <button class="btn-locale" data-locale="en">English</button>
+        </div>
+        <div id="i18n-content" class="i18n-text"></div>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>5. Loader 实现要点</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h3>1. 同步 Loader</h3>
+          <pre><code>module.exports = function(source) {
+  return transform(source);
+}</code></pre>
+        </div>
+        
+        <div class="tip-card">
+          <h3>2. 异步 Loader</h3>
+          <pre><code>module.exports = function(source) {
+  const callback = this.async();
+  asyncTransform(source).then(result => {
+    callback(null, result);
+  });
+}</code></pre>
+        </div>
+        
+        <div class="tip-card">
+          <h3>3. 获取配置</h3>
+          <pre><code>const options = this.getOptions();</code></pre>
+        </div>
+        
+        <div class="tip-card">
+          <h3>4. 验证配置</h3>
+          <pre><code>const { validate } = require('schema-utils');
+validate(schema, options, {
+  name: 'My Loader'
+});</code></pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>6. 控制台日志</h2>
+      <div class="log-info">
+        <p>打开浏览器控制台，查看：</p>
+        <ul>
+          <li>Loader 执行日志</li>
+          <li>资源路径信息</li>
+          <li>配置选项</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+

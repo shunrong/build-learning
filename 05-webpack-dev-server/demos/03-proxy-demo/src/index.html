@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>代理配置演示</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🔀 Webpack Dev Server 代理配置</h1>
+      <p class="subtitle">解决跨域问题，实现前后端分离开发</p>
+    </header>
+
+    <div class="content">
+      <!-- Section 1: 基础代理 -->
+      <section class="section">
+        <h2>📡 基础 API 代理</h2>
+        <p class="description">
+          通过代理访问后端 API，无需担心跨域问题
+        </p>
+        <div class="api-tests">
+          <div class="test-item">
+            <h3>GET /api/users</h3>
+            <button class="btn" id="btn-users">获取用户列表</button>
+            <pre class="result" id="result-users"></pre>
+          </div>
+          
+          <div class="test-item">
+            <h3>GET /api/users/1</h3>
+            <button class="btn" id="btn-user">获取用户详情</button>
+            <pre class="result" id="result-user"></pre>
+          </div>
+          
+          <div class="test-item">
+            <h3>POST /api/users</h3>
+            <button class="btn" id="btn-create">创建用户</button>
+            <pre class="result" id="result-create"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: 第三方 API 代理 -->
+      <section class="section">
+        <h2>🌐 第三方 API 代理</h2>
+        <p class="description">
+          代理到 GitHub API，演示跨域资源访问
+        </p>
+        <div class="api-tests">
+          <div class="test-item">
+            <h3>GET /github/users/github</h3>
+            <button class="btn" id="btn-github">获取 GitHub 信息</button>
+            <pre class="result" id="result-github"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: 高级场景 -->
+      <section class="section">
+        <h2>🔧 高级代理场景</h2>
+        <div class="api-tests">
+          <div class="test-item">
+            <h3>GET /api/search?q=webpack</h3>
+            <button class="btn" id="btn-search">搜索测试</button>
+            <pre class="result" id="result-search"></pre>
+          </div>
+          
+          <div class="test-item">
+            <h3>GET /api/error</h3>
+            <button class="btn btn-danger" id="btn-error">错误处理测试</button>
+            <pre class="result" id="result-error"></pre>
+          </div>
+          
+          <div class="test-item">
+            <h3>GET /api/slow</h3>
+            <button class="btn btn-warning" id="btn-slow">慢请求测试（3秒）</button>
+            <pre class="result" id="result-slow"></pre>
+          </div>
+          
+          <div class="test-item">
+            <h3>GET /api/protected</h3>
+            <button class="btn" id="btn-protected">认证请求测试</button>
+            <pre class="result" id="result-protected"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: 配置说明 -->
+      <section class="section">
+        <h2>📝 当前代理配置</h2>
+        <div class="config-display">
+          <h3>1. 本地 API 代理</h3>
+          <pre class="code-block">{
+  context: ['/api'],
+  target: 'http://localhost:4000',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/api': ''  // /api/users → /users
+  }
+}</pre>
+          
+          <h3>2. GitHub API 代理</h3>
+          <pre class="code-block">{
+  context: ['/github'],
+  target: 'https://api.github.com',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/github': ''  // /github/users/github → /users/github
+  },
+  headers: {
+    'User-Agent': 'webpack-dev-server'
+  }
+}</pre>
+          
+          <h3>3. 请求流程</h3>
+          <div class="flow-chart">
+            <div class="flow-step">浏览器<br/>/api/users</div>
+            <div class="arrow">→</div>
+            <div class="flow-step">Dev Server<br/>代理转发</div>
+            <div class="arrow">→</div>
+            <div class="flow-step">后端<br/>localhost:4000/users</div>
+            <div class="arrow">→</div>
+            <div class="flow-step">响应返回</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: 使用说明 -->
+      <section class="section">
+        <h2>💡 使用说明</h2>
+        <div class="instructions">
+          <div class="instruction-step">
+            <span class="step-number">1</span>
+            <div class="step-content">
+              <h4>启动 Mock 服务器</h4>
+              <code>npm run mock-server</code>
+              <p>在 4000 端口启动模拟的后端 API</p>
+            </div>
+          </div>
+          
+          <div class="instruction-step">
+            <span class="step-number">2</span>
+            <div class="step-content">
+              <h4>启动 Dev Server</h4>
+              <code>npm run dev</code>
+              <p>在另一个终端启动 Webpack Dev Server</p>
+            </div>
+          </div>
+          
+          <div class="instruction-step">
+            <span class="step-number">3</span>
+            <div class="step-content">
+              <h4>测试代理功能</h4>
+              <p>点击上方的按钮，测试各种代理场景</p>
+            </div>
+          </div>
+          
+          <div class="instruction-step">
+            <span class="step-number">4</span>
+            <div class="step-content">
+              <h4>观察控制台</h4>
+              <p>在 Mock 服务器的终端查看代理的请求日志</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: 常见问题 -->
+      <section class="section">
+        <h2>❓ 常见问题</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <h4>Q: 为什么需要代理？</h4>
+            <p>A: 浏览器的同源策略限制了跨域请求。开发时前端（localhost:8080）和后端（localhost:4000）不同源，需要代理解决跨域问题。</p>
+          </div>
+          
+          <div class="faq-item">
+            <h4>Q: changeOrigin 的作用？</h4>
+            <p>A: 修改请求头的 Origin 字段，使后端认为请求来自同源。某些后端会检查 Origin。</p>
+          </div>
+          
+          <div class="faq-item">
+            <h4>Q: pathRewrite 如何使用？</h4>
+            <p>A: 使用正则表达式重写路径。例如 '^/api': '' 会将 /api/users 转换为 /users。</p>
+          </div>
+          
+          <div class="faq-item">
+            <h4>Q: 生产环境怎么办？</h4>
+            <p>A: 生产环境通常使用 Nginx 等反向代理，或者前后端同域部署，不需要 webpack-dev-server 的代理。</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
+

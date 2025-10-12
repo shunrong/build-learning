@@ -1,0 +1,29 @@
+{
+  "name": "04-custom-loader",
+  "version": "1.0.0",
+  "description": "手写自定义 Loader 演示",
+  "scripts": {
+    "dev": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "webpack",
+    "custom-loader",
+    "loader-api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "loader-utils": "^3.2.1",
+    "marked": "^9.1.6",
+    "schema-utils": "^4.2.0",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

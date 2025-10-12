@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <div class="container">
+    <h1>📦 输出文件命名策略</h1>
+    <p class="subtitle">理解 hash、chunkhash、contenthash 的区别</p>
+    
+    <div class="info-box">
+      <h2>🎯 三种 Hash 策略</h2>
+      
+      <div class="hash-type">
+        <h3>1. hash（全局 hash）⚠️ 不推荐</h3>
+        <p><strong>特点：</strong>任何文件改变，所有文件的 hash 都会改变</p>
+        <p><strong>问题：</strong>无法利用浏览器缓存</p>
+        <pre><code>filename: '[name].[hash:8].js'</code></pre>
+      </div>
+      
+      <div class="hash-type">
+        <h3>2. chunkhash（chunk 级别）</h3>
+        <p><strong>特点：</strong>同一个 chunk 的文件 hash 相同</p>
+        <p><strong>适用：</strong>JS 文件</p>
+        <p><strong>问题：</strong>CSS 和 JS 在同一个 chunk，CSS 变化会影响 JS 的 hash</p>
+        <pre><code>filename: '[name].[chunkhash:8].js'</code></pre>
+      </div>
+      
+      <div class="hash-type">
+        <h3>3. contenthash（内容 hash）✅ 推荐</h3>
+        <p><strong>特点：</strong>根据文件内容生成 hash</p>
+        <p><strong>优势：</strong>内容不变，hash 不变，完美利用缓存</p>
+        <p><strong>适用：</strong>所有文件类型</p>
+        <pre><code>filename: '[name].[contenthash:8].js'
+cssFilename: '[name].[contenthash:8].css'</code></pre>
+      </div>
+    </div>
+    
+    <div class="demo-section">
+      <h2>🧪 实验步骤</h2>
+      <ol>
+        <li>运行不同的构建命令</li>
+        <li>修改代码</li>
+        <li>再次构建</li>
+        <li>对比 hash 的变化</li>
+      </ol>
+    </div>
+    
+    <div class="demo-section">
+      <h2>📊 示例内容</h2>
+      <p>这是来自 index.js 的内容</p>
+      <button id="btn">点击我</button>
+      <div id="output"></div>
+    </div>
+    
+    <div class="comparison-table">
+      <h2>📊 对比总结</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>策略</th>
+            <th>更新时机</th>
+            <th>缓存效果</th>
+            <th>推荐度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>hash</strong></td>
+            <td>任何文件变化</td>
+            <td>❌ 差</td>
+            <td>⚠️ 不推荐</td>
+          </tr>
+          <tr>
+            <td><strong>chunkhash</strong></td>
+            <td>同 chunk 文件变化</td>
+            <td>⚠️ 一般</td>
+            <td>✅ JS 可用</td>
+          </tr>
+          <tr>
+            <td><strong>contenthash</strong></td>
+            <td>文件内容变化</td>
+            <td>✅ 最好</td>
+            <td>✅ 推荐</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+

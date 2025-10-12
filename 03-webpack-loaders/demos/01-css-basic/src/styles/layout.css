@@ -1,0 +1,36 @@
+/* url() 引用演示 */
+
+.url-demo {
+  padding: 60px 20px;
+  background: linear-gradient(
+    rgba(102, 126, 234, 0.8),
+    rgba(118, 75, 162, 0.8)
+  ),
+  /* 使用 data URL 作为背景图案 */
+  url('data:image/svg+xml,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="10" fill="%23fff" opacity="0.1"/><rect x="10" y="10" width="10" height="10" fill="%23fff" opacity="0.1"/></svg>');
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.url-demo p {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .container > h1 {
+    font-size: 2em;
+  }
+  
+  .demo-section {
+    padding: 15px;
+  }
+}
+

@@ -1,0 +1,53 @@
+/* CSS Modules: Card 组件 */
+
+.card {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.header {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.body {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.body p {
+  margin-bottom: 10px;
+}
+
+.body p:last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*
+  CSS Modules 优势：
+  1. ✅ 局部作用域：类名不会污染全局
+  2. ✅ 可维护性：组件样式内聚
+  3. ✅ 可预测性：不会意外覆盖其他组件样式
+  4. ✅ 可组合性：通过 composes 复用样式
+*/
+

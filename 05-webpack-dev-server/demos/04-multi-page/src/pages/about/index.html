@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">🏠 MPA Demo</a>
+      <ul class="nav-menu">
+        <li><a href="/">首页</a></li>
+        <li><a href="/about.html" class="active">关于</a></li>
+        <li><a href="/contact.html">联系</a></li>
+        <li><a href="/dashboard.html">仪表盘</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="page-header">
+      <h1>📖 关于我们</h1>
+      <p>了解更多关于多页面应用的信息</p>
+    </header>
+
+    <section class="content">
+      <div class="card">
+        <h2>🎯 MPA vs SPA</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>特性</th>
+              <th>MPA</th>
+              <th>SPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>页面数量</td>
+              <td>多个 HTML</td>
+              <td>单个 HTML</td>
+            </tr>
+            <tr>
+              <td>页面切换</td>
+              <td>完整刷新</td>
+              <td>无刷新</td>
+            </tr>
+            <tr>
+              <td>首屏速度</td>
+              <td>⚡ 快</td>
+              <td>🐢 较慢</td>
+            </tr>
+            <tr>
+              <td>SEO</td>
+              <td>✅ 友好</td>
+              <td>⚠️ 需要处理</td>
+            </tr>
+            <tr>
+              <td>用户体验</td>
+              <td>⚠️ 有闪烁</td>
+              <td>✅ 流畅</td>
+            </tr>
+            <tr>
+              <td>开发复杂度</td>
+              <td>⭐⭐</td>
+              <td>⭐⭐⭐⭐</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>🛠️ 技术栈</h2>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <span class="tech-icon">⚙️</span>
+            <h3>Webpack 5</h3>
+            <p>模块打包工具</p>
+          </div>
+          <div class="tech-item">
+            <span class="tech-icon">🔥</span>
+            <h3>HMR</h3>
+            <p>热模块替换</p>
+          </div>
+          <div class="tech-item">
+            <span class="tech-icon">🌐</span>
+            <h3>Dev Server</h3>
+            <p>开发服务器</p>
+          </div>
+          <div class="tech-item">
+            <span class="tech-icon">📦</span>
+            <h3>多入口配置</h3>
+            <p>独立页面打包</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📝 配置要点</h2>
+        <div class="config-points">
+          <div class="config-point">
+            <h3>1. 多入口配置</h3>
+            <pre class="code-block">entry: {
+  index: './src/pages/index/index.js',
+  about: './src/pages/about/index.js',
+  // ... 更多页面
+}</pre>
+          </div>
+          
+          <div class="config-point">
+            <h3>2. 多 HTML 插件</h3>
+            <pre class="code-block">new HtmlWebpackPlugin({
+  template: './src/pages/about/index.html',
+  filename: 'about.html',
+  chunks: ['about']  // 只引入 about 的 JS
+})</pre>
+          </div>
+          
+          <div class="config-point">
+            <h3>3. 历史路由支持</h3>
+            <pre class="code-block">historyApiFallback: {
+  rewrites: [
+    { from: /^\/about/, to: '/about.html' }
+  ]
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>当前页面：<strong id="current-page">关于页</strong></p>
+    <p>页面加载时间：<strong id="load-time">-</strong> ms</p>
+  </footer>
+</body>
+</html>
+

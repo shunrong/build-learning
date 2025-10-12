@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静态资源处理演示</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Webpack 静态资源处理</h1>
+    
+    <section class="demo-section">
+      <h2>1. asset/resource（输出文件）</h2>
+      <p>适合大图片，会输出到 <code>dist/images/</code></p>
+      <div class="image-grid">
+        <div class="image-item">
+          <div id="large-image-1"></div>
+          <p class="caption">大图片 1</p>
+        </div>
+        <div class="image-item">
+          <div id="large-image-2"></div>
+          <p class="caption">大图片 2</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>2. asset/source（源码）</h2>
+      <p>导出文件源码，适合 SVG 图标内联显示</p>
+      <div class="icon-grid" id="icon-container">
+        <!-- 通过 JS 动态插入 SVG 图标 -->
+      </div>
+      <div class="info-box" style="margin-top: 15px; background: #e3f2fd;">
+        <p style="color: #1976d2; font-size: 0.9em;">
+          💡 SVG 使用 asset/source 可以直接获取源代码，然后用 innerHTML 内联显示。
+          如果使用 asset/inline（base64），则需要用 &lt;img&gt; 标签的 src 属性。
+        </p>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>3. asset（自动选择）</h2>
+      <p>根据文件大小自动选择：&lt; 8KB 转 base64，≥ 8KB 输出文件</p>
+      <div class="auto-demo">
+        <div class="font-demo">
+          <p class="custom-font">自定义字体演示 Custom Font</p>
+          <p class="font-info">字体文件根据大小自动处理</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>4. asset/source（导出源码）</h2>
+      <p>适合文本文件，直接导出为字符串</p>
+      <div class="text-demo">
+        <pre id="text-content"></pre>
+      </div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>5. CSS 中的图片引用</h2>
+      <p>通过 <code>url()</code> 引用的图片也会被 Webpack 处理</p>
+      <div class="css-bg-demo"></div>
+    </section>
+    
+    <section class="demo-section">
+      <h2>6. 调试信息</h2>
+      <div class="debug-info">
+        <p>打开控制台查看资源路径信息</p>
+        <button id="show-info" class="btn">显示资源信息</button>
+        <div id="info-output"></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+

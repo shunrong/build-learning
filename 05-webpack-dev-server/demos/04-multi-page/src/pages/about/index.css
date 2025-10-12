@@ -1,0 +1,86 @@
+/* 关于页特定样式 */
+.page-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 40px rgba(240, 147, 251, 0.3);
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* 对比表格 */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.comparison-table th {
+  background: #f8f9fa;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.comparison-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+/* 技术栈 */
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tech-item {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(240, 147, 251, 0.3);
+}
+
+.tech-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.tech-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.tech-item p {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* 配置要点 */
+.config-points {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.config-point h3 {
+  color: #f093fb;
+  margin-bottom: 15px;
+}
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🔌 常用 Plugin 演示</h1>
+      <p class="subtitle">理解主流 Plugin 的作用和配置</p>
+    </header>
+
+    <main>
+      <section class="plugin-card">
+        <h2>1. HtmlWebpackPlugin</h2>
+        <p>✅ 自动生成 HTML 文件</p>
+        <p>✅ 自动注入打包后的 JS 和 CSS</p>
+        <p>✅ 支持模板变量：<code>title = <%= htmlWebpackPlugin.options.title %></code></p>
+      </section>
+
+      <section class="plugin-card">
+        <h2>2. MiniCssExtractPlugin</h2>
+        <p>✅ 将 CSS 提取到独立文件</p>
+        <p>✅ 支持按需加载</p>
+        <p>✅ 文件名：<span id="css-filename"></span></p>
+      </section>
+
+      <section class="plugin-card">
+        <h2>3. DefinePlugin</h2>
+        <p>✅ 注入全局常量</p>
+        <ul>
+          <li>环境：<strong id="env"></strong></li>
+          <li>版本：<strong id="version"></strong></li>
+          <li>构建时间：<strong id="build-time"></strong></li>
+        </ul>
+      </section>
+
+      <section class="plugin-card">
+        <h2>4. CopyWebpackPlugin</h2>
+        <p>✅ 复制静态资源到输出目录</p>
+        <p>✅ 查看 <code>/public</code> 目录下的文件</p>
+        <button id="check-public">检查public文件</button>
+        <div id="public-files"></div>
+      </section>
+
+      <section class="plugin-card">
+        <h2>5. BundleAnalyzerPlugin</h2>
+        <p>✅ 分析打包产物</p>
+        <p>✅ 可视化模块大小</p>
+        <p>运行 <code>npm run analyze</code> 查看分析报告</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>💡 提示：打开开发者工具查看注入的环境变量</p>
+    </footer>
+  </div>
+</body>
+</html>
+

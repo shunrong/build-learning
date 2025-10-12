@@ -1,0 +1,30 @@
+{
+  "name": "05-custom-dev-server",
+  "version": "1.0.0",
+  "description": "手写简易 Webpack Dev Server - 理解底层实现原理",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "webpack",
+    "dev-server",
+    "custom",
+    "express",
+    "websocket"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "html-webpack-plugin": "^5.5.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.13.0",
+    "chokidar": "^3.5.3",
+    "mime-types": "^2.1.35"
+  }
+}

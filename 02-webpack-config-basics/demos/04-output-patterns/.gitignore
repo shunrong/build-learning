@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-hash/
+dist-chunkhash/
+dist-contenthash/
+*.log
+.DS_Store
+
