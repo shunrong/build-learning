@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "📝 检查提交信息格式..."
+npx --no -- commitlint --edit $1
+

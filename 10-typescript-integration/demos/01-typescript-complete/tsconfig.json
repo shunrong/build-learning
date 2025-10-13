@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    // 🔥 核心配置：Webpack 负责编译，TS 只做类型检查
+    "noEmit": true,
+    
+    // 编译目标（不输出，仅供 IDE 和类型检查使用）
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM"],
+    
+    // 模块解析
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    
+    // 严格模式（生产级推荐）
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    
+    // 路径别名（必须与 webpack.config.js 的 alias 一致）
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@/types/*": ["src/types/*"]
+    },
+    
+    // 性能优化
+    "skipLibCheck": true,              // ⭐️ 跳过第三方库检查，大幅加速
+    "forceConsistentCasingInFileNames": true,  // 跨平台兼容性
+    
+    // 增量编译（加速重复编译）
+    "incremental": true,
+    "tsBuildInfoFile": "./.tsbuildinfo"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+

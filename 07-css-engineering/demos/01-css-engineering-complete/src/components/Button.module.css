@@ -1,0 +1,59 @@
+/* Button 组件样式 - CSS Modules */
+
+/* 基础样式 */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+  margin-right: 10px;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* 主要按钮 */
+.primary {
+  composes: button;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.primary:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #66397f 100%);
+}
+
+/* 次要按钮 */
+.secondary {
+  composes: button;
+  background: #e0e7ff;
+  color: #667eea;
+}
+
+.secondary:hover {
+  background: #c7d2fe;
+}
+
+/* 禁用按钮 */
+.disabled {
+  composes: button;
+  background: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .card h2 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+    
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+      margin-right: 1rem;
+      margin-top: 0.5rem;
+    }
+    
+    button:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    .result {
+      background: #e8f5e9;
+      border-left: 3px solid #4caf50;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+    }
+    
+    .code {
+      background: #f5f5f5;
+      border-left: 3px solid #667eea;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+    }
+    
+    .info {
+      background: #e3f2fd;
+      border-left: 3px solid #2196f3;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔧 Polyfill 方案对比 Demo</h1>
+    
+    <div class="card">
+      <h2>📝 当前方案</h2>
+      <div class="info">
+        <strong>方案：</strong><span id="current-config"><%= htmlWebpackPlugin.options.title %></span><br>
+        <strong>说明：</strong>打开浏览器控制台查看详细日志
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>1️⃣ Promise 测试</h2>
+      <button onclick="testPromise()">运行测试</button>
+      <div id="promise-result"></div>
+    </div>
+    
+    <div class="card">
+      <h2>2️⃣ Array 方法测试</h2>
+      <button onclick="testArrayMethods()">运行测试</button>
+      <div id="array-result"></div>
+    </div>
+    
+    <div class="card">
+      <h2>3️⃣ Object 方法测试</h2>
+      <button onclick="testObjectMethods()">运行测试</button>
+      <div id="object-result"></div>
+    </div>
+    
+    <div class="card">
+      <h2>4️⃣ String 方法测试</h2>
+      <button onclick="testStringMethods()">运行测试</button>
+      <div id="string-result"></div>
+    </div>
+    
+    <div class="card">
+      <h2>5️⃣ Map/Set 测试</h2>
+      <button onclick="testMapSet()">运行测试</button>
+      <div id="mapset-result"></div>
+    </div>
+  </div>
+</body>
+</html>
+

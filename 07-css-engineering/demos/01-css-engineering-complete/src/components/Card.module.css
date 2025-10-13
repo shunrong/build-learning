@@ -1,0 +1,77 @@
+/* Card 组件样式 - 演示 composes */
+
+/* 基础卡片样式 */
+.baseCard {
+  padding: 20px;
+  border-radius: 12px;
+  margin: 10px;
+  display: inline-block;
+  width: 300px;
+  vertical-align: top;
+  transition: all 0.3s;
+}
+
+/* 标准卡片 */
+.card {
+  composes: baseCard;
+  background: white;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+/* 强调卡片 - 组合基础样式 */
+.emphasizedCard {
+  composes: baseCard;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+}
+
+.emphasizedCard:hover {
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+  transform: translateY(-4px);
+}
+
+/* 标题 */
+.title {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 内容 */
+.content {
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* 底部 */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 徽章 */
+.badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.card .badge {
+  background: #e0e7ff;
+  color: #667eea;
+}
+
+.emphasizedCard .badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
