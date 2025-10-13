@@ -1,0 +1,9 @@
+node_modules/
+dist-no-compress/
+dist-basic/
+dist-advanced/
+dist-gzip/
+dist-brotli/
+.DS_Store
+*.log
+

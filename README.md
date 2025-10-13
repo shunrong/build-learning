@@ -86,16 +86,16 @@
 
 | Phase | 目录 | 内容 | 状态 | 预计时长 |
 |-------|------|------|------|----------|
-| **12** | `12-build-performance/` | 构建性能优化（缓存/并行/DLL/Externals/分析） | 📝 待开始 | 4-5天 |
-| **13** | `13-bundle-optimization/` | 产物优化（代码拆分/Tree Shaking/压缩/分析） | 📝 待开始 | 4-5天 |
-| **14** | `14-runtime-optimization/` | 运行时优化（懒加载/Prefetch/Preload/Module Federation） | 📝 待开始 | 3-4天 |
+| **12** | `12-build-performance/` | 构建性能优化（缓存/并行/DLL/Externals/分析） | ✅ 已完成 | 4-5天 |
+| **13** | `13-bundle-optimization/` | 产物优化（代码拆分/Tree Shaking/压缩/分析） | ✅ 已完成 | 4-5天 |
+| **14** | `14-runtime-optimization/` | 运行时优化（懒加载/Prefetch/Preload/Module Federation） | ✅ 已完成 | 3-4天 |
 
 **阶段目标**：
-- [ ] 理解 Webpack 构建性能瓶颈
-- [ ] 掌握多种构建优化手段
-- [ ] 掌握产物体积优化技巧
-- [ ] 理解运行时优化策略
-- [ ] 能够分析和优化实际项目
+- [x] 理解 Webpack 构建性能瓶颈 ✅
+- [x] 掌握多种构建优化手段 ✅
+- [x] 掌握产物体积优化技巧 ✅
+- [x] 理解运行时优化策略 ✅
+- [x] 能够分析和优化实际项目 ✅
 
 ---
 
@@ -153,17 +153,17 @@
 
 ## 🚀 快速开始
 
-### 当前任务：完成 Phase 05
+### 当前任务：完成 Phase 13
 
 ```bash
-# 已完成的阶段
-✅ Phase 01: 01-core-concepts/          # Webpack 核心概念
-✅ Phase 02: 02-webpack-config-basics/  # 配置系统详解
-✅ Phase 03: 03-webpack-loaders/        # Loader 机制
-✅ Phase 04: 04-webpack-plugins/        # Plugin 机制
+# 已完成的阶段（阶段一、二）
+✅ Phase 01-11: 工程化能力全部完成
+
+# 阶段三：性能优化（进行中）
+✅ Phase 12: 12-build-performance/       # 构建性能优化 ✅
 
 # 下一步
-📝 Phase 05: 05-webpack-dev-server/     # 开发服务器（待创建）
+📝 Phase 13: 13-bundle-optimization/     # 产物优化（待创建）
 ```
 
 ### 学习建议
@@ -266,9 +266,9 @@ XX-phase-name/
 - [ ] Phase 10: TypeScript 集成
 - [ ] Phase 11: React 集成
 
-### 阶段三进度：0/3 完成（0%）
+### 阶段三进度：1/3 完成（33%）
 
-- [ ] Phase 12: 构建性能优化
+- [x] Phase 12: 构建性能优化 ✅
 - [ ] Phase 13: 产物优化
 - [ ] Phase 14: 运行时优化
 
@@ -385,6 +385,7 @@ XX-phase-name/
 
 ## 📝 更新日志
 
+- **2025-01-13**: 完成 Phase 12（构建性能优化），包含6个详细文档和5个对比Demo，标志阶段三开启
 - **2025-01-12**: 完成 Phase 04（Plugin 机制深入），包含5个详细文档和3个完整Demo
 - **2025-01-12**: 完成 Phase 03（Loader 机制深入），目录结构扁平化，重新梳理完整学习计划
 - **2025-01-11**: 完成 Phase 02（配置系统详解）

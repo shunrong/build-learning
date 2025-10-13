@@ -1,0 +1,6 @@
+node_modules/
+dist-no-tree-shaking/
+dist-with-tree-shaking/
+.DS_Store
+*.log
+
