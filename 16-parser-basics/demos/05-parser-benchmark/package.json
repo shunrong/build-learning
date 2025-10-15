@@ -1,0 +1,21 @@
+{
+  "name": "05-parser-benchmark",
+  "version": "1.0.0",
+  "description": "Parser 性能对比 - 测试不同 Parser 的性能",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "parser",
+    "benchmark",
+    "performance"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "acorn": "^8.11.0",
+    "chalk": "^4.1.2"
+  }
+}

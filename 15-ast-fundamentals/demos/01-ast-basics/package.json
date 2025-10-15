@@ -1,0 +1,24 @@
+{
+  "name": "01-ast-basics",
+  "version": "1.0.0",
+  "description": "AST 基础探索 - 使用 @babel/parser 解析代码，查看 AST 结构",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "parse:simple": "node src/01-simple-parse.js",
+    "parse:complex": "node src/02-complex-parse.js",
+    "compare": "node src/03-syntax-compare.js",
+    "visualize": "node src/04-visualize.js"
+  },
+  "keywords": [
+    "ast",
+    "babel",
+    "parser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "04-mini-js-parser",
+  "version": "1.0.0",
+  "description": "Mini JS Parser - 简化版 JavaScript Parser",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "parser",
+    "javascript",
+    "ast"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

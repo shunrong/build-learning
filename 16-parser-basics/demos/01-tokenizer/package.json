@@ -1,0 +1,21 @@
+{
+  "name": "01-tokenizer",
+  "version": "1.0.0",
+  "description": "Token 生成器 - 手写词法分析器",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "tokenize": "node src/tokenizer.js",
+    "test": "node src/test.js"
+  },
+  "keywords": [
+    "lexer",
+    "tokenizer",
+    "parser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

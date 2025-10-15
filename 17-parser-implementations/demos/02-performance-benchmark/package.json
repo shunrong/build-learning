@@ -1,0 +1,15 @@
+{
+  "name": "02-performance-benchmark",
+  "version": "1.0.0",
+  "description": "Parser 性能基准测试",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "acorn": "^8.11.0",
+    "esprima": "^4.0.1",
+    "chalk": "^4.1.2"
+  }
+}

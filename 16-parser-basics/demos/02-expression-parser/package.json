@@ -1,0 +1,19 @@
+{
+  "name": "02-expression-parser",
+  "version": "1.0.0",
+  "description": "表达式 Parser - 手写数学表达式解析器",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "parser",
+    "expression",
+    "ast"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "03-ast-manipulation",
+  "version": "1.0.0",
+  "description": "AST 操作实战 - 增删改 AST 节点",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "rename": "node src/01-rename-variable.js",
+    "remove": "node src/02-remove-console.js",
+    "insert": "node src/03-insert-comment.js",
+    "replace": "node src/04-arrow-to-function.js"
+  },
+  "keywords": [
+    "ast",
+    "babel",
+    "manipulation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "@babel/generator": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}

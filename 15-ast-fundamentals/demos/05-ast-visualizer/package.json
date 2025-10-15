@@ -1,0 +1,23 @@
+{
+  "name": "05-ast-visualizer",
+  "version": "1.0.0",
+  "description": "AST 可视化工具 - 以树形结构展示 AST",
+  "main": "src/visualizer.js",
+  "scripts": {
+    "start": "node src/visualizer.js",
+    "serve": "node src/server.js",
+    "demo": "node src/demo.js"
+  },
+  "keywords": [
+    "ast",
+    "babel",
+    "visualizer"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {}
+}

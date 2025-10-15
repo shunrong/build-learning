@@ -1,0 +1,29 @@
+{
+  "name": "04-code-transformer",
+  "version": "1.0.0",
+  "description": "代码转换器 - 完整的 Parse → Transform → Generate 流程",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "transform:debugger": "node src/01-remove-debugger.js",
+    "transform:console": "node src/02-remove-console.js",
+    "transform:arrow": "node src/03-arrow-to-function.js",
+    "transform:const": "node src/04-const-to-var.js",
+    "transform:file": "node src/05-transform-file.js input.js"
+  },
+  "keywords": [
+    "ast",
+    "babel",
+    "transformer",
+    "code-generation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "@babel/generator": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}
