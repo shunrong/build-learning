@@ -1,0 +1,14 @@
+{
+  "name": "01-simple-linter",
+  "version": "1.0.0",
+  "description": "简单的 Linter 实现",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}

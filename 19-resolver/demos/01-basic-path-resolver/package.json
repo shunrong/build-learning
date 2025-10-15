@@ -1,0 +1,12 @@
+{
+  "name": "01-basic-path-resolver",
+  "version": "1.0.0",
+  "description": "基础路径解析器",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}
