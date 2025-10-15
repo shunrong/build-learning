@@ -1,0 +1,16 @@
+{
+  "name": "03-jsx-transformer",
+  "version": "1.0.0",
+  "description": "JSX 转换器 - 实现 JSX → React.createElement",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/parser": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "@babel/generator": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}

@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 当前进度：17/26 Phase 已完成
+## 🎯 当前进度：18/26 Phase 已完成
 
 ```
 ✅ Phase 01-05: Webpack 基础篇
@@ -25,7 +25,8 @@
 ✅ Phase 15: AST 基础
 ✅ Phase 16: Parser 基础
 ✅ Phase 17: Parser 实现对比
-🔄 Phase 18: Transformer（下一步）
+✅ Phase 18: Transformer（代码转换）
+🔄 Phase 19: Resolver（下一步）
 ```
 
 ---
@@ -102,7 +103,7 @@
 | **15** | `15-ast-fundamentals/` | AST 基础（什么是 AST/遍历/操作） | ✅ 已完成 | 3-4天 |
 | **16** | `16-parser-basics/` | Parser 基础（词法分析/语法分析） | ✅ 已完成 | 4-5天 |
 | **17** | `17-parser-implementations/` | Parser 实现对比（Acorn/Babel Parser/SWC） | ✅ 已完成 | 3-4天 |
-| **18** | `18-transformer/` | Transformer（代码转换/Babel 插件） | 📝 待开始 | 4-5天 |
+| **18** | `18-transformer/` | Transformer（代码转换/Babel 插件） | ✅ 已完成 | 4-5天 |
 | **19** | `19-resolver/` | Resolver（模块解析/路径解析） | 📝 待开始 | 3-4天 |
 | **20** | `20-linter/` | Linter（ESLint 原理/规则实现） | 📝 待开始 | 3-4天 |
 | **21** | `21-formatter/` | Formatter（Prettier 原理/格式化算法） | 📝 待开始 | 2-3天 |
@@ -113,6 +114,7 @@
 - [x] 深入理解 AST 和代码解析 ✅（Phase 15）
 - [x] 理解词法分析和语法分析原理 ✅（Phase 16）
 - [x] 对比不同 Parser 的实现和性能 ✅（Phase 17）
+- [x] 掌握代码转换和 Babel 插件开发 ✅（Phase 18）
 - [ ] 理解 Babel、SWC、Oxc 的差异
 - [ ] 理解 Webpack 性能瓶颈的根本原因
 - [ ] 理解为什么 Rust 工具链更快
@@ -161,9 +163,10 @@
 ✅ Phase 15: 15-ast-fundamentals/          # AST 基础 ✅
 ✅ Phase 16: 16-parser-basics/             # Parser 基础 ✅
 ✅ Phase 17: 17-parser-implementations/    # Parser 实现对比 ✅
+✅ Phase 18: 18-transformer/               # Transformer ✅
 
 # 下一步
-📝 Phase 18: 18-transformer/               # Transformer（下一个任务）
+📝 Phase 19: 19-resolver/                  # Resolver（下一个任务）
 ```
 
 ### 学习建议

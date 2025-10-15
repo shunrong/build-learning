@@ -1,0 +1,18 @@
+{
+  "name": "05-custom-babel-plugins",
+  "version": "1.0.0",
+  "description": "自定义 Babel 插件集合",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "demo:console": "node src/test-remove-console.js",
+    "demo:track": "node src/test-auto-track.js",
+    "demo:import": "node src/test-import-on-demand.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "@babel/template": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}

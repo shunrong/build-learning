@@ -1,0 +1,20 @@
+{
+  "name": "01-simple-transformer",
+  "version": "1.0.0",
+  "description": "简单的代码转换器",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "demo1": "node src/01-remove-console.js",
+    "demo2": "node src/02-arrow-to-function.js",
+    "demo3": "node src/03-constant-folding.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "@babel/generator": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}

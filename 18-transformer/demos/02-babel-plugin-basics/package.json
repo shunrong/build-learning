@@ -1,0 +1,16 @@
+{
+  "name": "02-babel-plugin-basics",
+  "version": "1.0.0",
+  "description": "Babel 插件基础示例",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node src/test-plugin.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "@babel/template": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}
