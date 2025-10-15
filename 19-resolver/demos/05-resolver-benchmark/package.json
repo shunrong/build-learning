@@ -1,0 +1,12 @@
+{
+  "name": "05-resolver-benchmark",
+  "version": "1.0.0",
+  "description": "解析器性能对比",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

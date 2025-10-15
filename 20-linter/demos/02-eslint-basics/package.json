@@ -1,0 +1,14 @@
+{
+  "name": "02-eslint-basics",
+  "version": "1.0.0",
+  "description": "ESLint 基础使用",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "node src/run-eslint.js"
+  },
+  "dependencies": {
+    "eslint": "^8.50.0",
+    "chalk": "^4.1.2"
+  }
+}

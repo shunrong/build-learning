@@ -1,0 +1,12 @@
+{
+  "name": "05-linter-performance",
+  "version": "1.0.0",
+  "description": "Linter 性能优化",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

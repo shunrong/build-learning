@@ -1,0 +1,12 @@
+{
+  "name": "03-webpack-resolver",
+  "version": "1.0.0",
+  "description": "Webpack 风格解析器",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

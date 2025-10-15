@@ -1,0 +1,14 @@
+{
+  "name": "04-ast-linting",
+  "version": "1.0.0",
+  "description": "基于 AST 的代码检查",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}
