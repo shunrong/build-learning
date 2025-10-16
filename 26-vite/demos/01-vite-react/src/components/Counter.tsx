@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import './Counter.css';
+import { useState } from "react";
+import "./Counter.css";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -17,11 +17,10 @@ function Counter() {
       </div>
       <div className="counter-info">
         <p>当前值：{count}</p>
-        <p>状态：{count > 0 ? '正数' : count < 0 ? '负数' : '零'}</p>
+        <p>状态：{count > 0 ? "正数" : count < 0 ? "负数" : "零"}</p>
       </div>
     </div>
   );
 }
 
 export default Counter;
-
