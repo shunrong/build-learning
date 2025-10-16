@@ -1,0 +1,15 @@
+{
+  "name": "03-complete-formatter",
+  "version": "1.0.0",
+  "description": "完整的 Formatter - 智能换行",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/demo.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}
+

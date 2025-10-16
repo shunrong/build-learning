@@ -1,0 +1,16 @@
+{
+  "name": "02-basic-formatter",
+  "version": "1.0.0",
+  "description": "基础 Formatter - 支持常见语法",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "demo": "node src/demo.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}
+

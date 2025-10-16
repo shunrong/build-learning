@@ -1,0 +1,15 @@
+{
+  "name": "04-prettier-mini",
+  "version": "1.0.0",
+  "description": "Prettier Mini - 模拟 Prettier IR",
+  "main": "src/demo.js",
+  "scripts": {
+    "start": "node src/demo.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}
+

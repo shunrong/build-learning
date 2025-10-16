@@ -1,0 +1,16 @@
+{
+  "name": "05-formatter-benchmark",
+  "version": "1.0.0",
+  "description": "Formatter 性能对比",
+  "main": "src/benchmark.js",
+  "scripts": {
+    "start": "node src/benchmark.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "prettier": "^3.0.0",
+    "chalk": "^4.1.2"
+  }
+}
+

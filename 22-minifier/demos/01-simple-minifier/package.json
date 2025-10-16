@@ -1,0 +1,17 @@
+{
+  "name": "01-simple-minifier",
+  "version": "1.0.0",
+  "description": "简单的代码压缩器",
+  "main": "src/demo.js",
+  "scripts": {
+    "start": "node src/demo.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "@babel/generator": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}
+
