@@ -131,42 +131,61 @@ class WebpackResolver {
 }
 
 // 测试
+const projectRoot = path.join(__dirname, '..');
+const srcDir = path.join(projectRoot, 'src');
+const nodeModulesDir = path.join(projectRoot, 'node_modules');
+
 const resolver = new WebpackResolver({
   alias: {
-    '@': '/project/src',
-    'components': '/project/src/components',
-    'utils$': '/project/src/utils/index.js'
+    '@': srcDir,
+    'utils$': path.join(srcDir, 'index.js')  // 精确别名
   },
-  extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-  modules: ['/project/node_modules']
+  extensions: ['.js', '.json'],
+  modules: [nodeModulesDir]
 });
 
-const testFile = '/project/src/app.js';
+const testFile = path.join(srcDir, 'app.js');
 
 const testCases = [
-  { desc: '别名（精确）', spec: 'utils' },
-  { desc: '别名（前缀）', spec: '@/services/api' },
-  { desc: '相对路径', spec: './Header' },
-  { desc: '模块路径', spec: 'react' }
+  { desc: '别名（精确）', spec: 'utils', expected: srcDir + '/index.js' },
+  { desc: '别名（前缀）', spec: '@/index', expected: srcDir + '/index.js' },
+  { desc: '相对路径（文件存在）', spec: './index', expected: srcDir + '/index.js' },
+  { desc: '模块路径', spec: 'chalk', expected: 'chalk 模块' }
 ];
 
 console.log(chalk.yellow('配置:'));
-console.log(chalk.white('  alias:'), chalk.gray(JSON.stringify(resolver.alias, null, 2)));
-console.log(chalk.white('  extensions:'), chalk.gray(resolver.extensions.join(', ')));
+console.log(chalk.white('  项目根目录:'), chalk.gray(projectRoot));
+console.log(chalk.white('  src 目录:'), chalk.gray(srcDir));
+console.log(chalk.white('  别名:'));
+Object.entries(resolver.alias).forEach(([key, value]) => {
+  console.log(chalk.gray(`    ${key} → ${value}`));
+});
+console.log(chalk.white('  扩展名:'), chalk.gray(resolver.extensions.join(', ')));
 console.log();
 
 console.log(chalk.yellow('从文件:'), chalk.white(testFile));
 console.log();
 
-testCases.forEach(({ desc, spec }) => {
+testCases.forEach(({ desc, spec, expected }) => {
   console.log(chalk.blue(`[${desc}]`), chalk.white(spec));
+  console.log(chalk.gray(`  期望: ${expected}`));
   const result = resolver.resolve(spec, testFile);
   if (result) {
-    console.log(chalk.green('  →'), chalk.gray(result));
+    console.log(chalk.green('  解析结果:'), chalk.gray(result));
+    console.log(chalk.green('  ✓ 成功'));
   } else {
-    console.log(chalk.red('  → 未找到'));
+    console.log(chalk.red('  解析结果: 未找到'));
+    console.log(chalk.yellow('  ⚠ 如果文件/模块不存在，这是正常的'));
   }
   console.log();
 });
+
+console.log(chalk.cyan('说明:'));
+console.log(chalk.white('  • 此 demo 演示解析逻辑，部分路径可能不存在'));
+console.log(chalk.white('  • 别名（精确）: utils$ 只匹配 "utils"，不匹配 "utils/xxx"'));
+console.log(chalk.white('  • 别名（前缀）: @ 可匹配 "@/xxx"'));
+console.log(chalk.white('  • 相对路径: 从当前文件目录解析'));
+console.log(chalk.white('  • 模块路径: 从 node_modules 解析'));
+console.log();
 
 console.log(chalk.green('✅ Webpack 风格解析演示完成\n'));

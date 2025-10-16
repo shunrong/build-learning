@@ -113,25 +113,50 @@ class NodeResolver {
 
 // 测试
 const resolver = new NodeResolver();
-const testFile = '/project/src/app.js';
+const testFile = __filename; // 使用当前文件作为起点
 
 const testCases = [
-  './utils',
-  '../config',
-  'lodash',
-  'react'
+  { spec: './index', desc: '相对路径 - 当前目录', shouldExist: true },
+  { spec: './test', desc: '相对路径 - 不存在的文件', shouldExist: false },
+  { spec: 'chalk', desc: '模块路径 - chalk', shouldExist: false, note: 'chalk v5+ 使用 exports，需要更复杂的解析' },
+  { spec: 'react', desc: '模块路径 - react（未安装）', shouldExist: false }
 ];
 
 console.log(chalk.yellow('从文件:'), chalk.white(testFile));
+console.log(chalk.gray('Node modules 搜索路径:'));
+const modulePaths = resolver.getNodeModulesPaths(testFile);
+modulePaths.slice(0, 3).forEach(p => {
+  console.log(chalk.gray(`  • ${p}`));
+});
+if (modulePaths.length > 3) {
+  console.log(chalk.gray(`  ... 共 ${modulePaths.length} 个路径`));
+}
 console.log();
 
-testCases.forEach(spec => {
+testCases.forEach(({ spec, desc, shouldExist, note }) => {
+  console.log(chalk.blue(`[${desc}]`), chalk.white(spec));
   const result = resolver.resolve(spec, testFile);
-  console.log(chalk.blue('解析:'), chalk.white(spec));
   if (result) {
-    console.log(chalk.green('  →'), chalk.gray(result));
+    console.log(chalk.green('  解析结果:'), chalk.gray(result));
+    console.log(chalk.green('  ✓ 成功'));
   } else {
-    console.log(chalk.red('  → 未找到'));
+    console.log(chalk.red('  解析结果: 未找到'));
+    if (shouldExist) {
+      console.log(chalk.yellow('  ⚠ 预期应该找到，但未找到'));
+    } else {
+      console.log(chalk.gray('  ℹ 预期未找到（文件/模块不存在）'));
+    }
+    if (note) {
+      console.log(chalk.cyan(`  💡 ${note}`));
+    }
   }
   console.log();
 });
+
+console.log(chalk.cyan('说明:'));
+console.log(chalk.white('  • Node.js 解析顺序: 文件 → 扩展名补全 → 目录/package.json → index 文件'));
+console.log(chalk.white('  • node_modules 搜索: 从当前目录逐级向上查找'));
+console.log(chalk.white('  • 扩展名: .js, .json, .node'));
+console.log();
+
+console.log(chalk.green('✅ Node.js 风格解析演示完成\n'));

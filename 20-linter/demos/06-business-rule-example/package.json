@@ -1,0 +1,23 @@
+{
+  "name": "06-business-rule-example",
+  "version": "1.0.0",
+  "description": "业务场景自定义规则 - Feature 模块边界检查",
+  "main": "rules/no-cross-feature-import.js",
+  "scripts": {
+    "test": "node test/run-test.js",
+    "demo": "node demo/demo-project.js"
+  },
+  "keywords": [
+    "eslint",
+    "custom-rule",
+    "feature-boundary",
+    "architecture"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "chalk": "^4.1.2"
+  }
+}

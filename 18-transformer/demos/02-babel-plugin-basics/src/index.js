@@ -52,24 +52,28 @@ babel.transformSync('const x = 1; console.log(x);', {
   ]
 });
 
-// ==================== 示例 3: 使用 template ====================
-console.log(chalk.bold.yellow('\n【示例 3】使用 template 创建节点\n'));
+// ==================== 示例 3: 使用 @babel/types 手动构建 AST ====================
+console.log(chalk.bold.yellow('\n【示例 3】使用 @babel/types 手动构建 AST 节点\n'));
 
-const templatePlugin = function(babel) {
-  const buildLog = template(`
-    console.log('Function %%name%% called');
-  `);
-  
+const manualAstPlugin = function(babel) {
   return {
     visitor: {
       FunctionDeclaration(path) {
         const { id } = path.node;
         
-        // 在函数开头插入日志
-        const logStatement = buildLog({
-          name: t.stringLiteral(id.name)
-        });
+        // 手动构建 console.log 语句
+        // console.log('Function greet called');
+        const logStatement = t.expressionStatement(
+          t.callExpression(
+            t.memberExpression(
+              t.identifier('console'),
+              t.identifier('log')
+            ),
+            [t.stringLiteral(`Function ${id.name} called`)]
+          )
+        );
         
+        // 在函数开头插入日志
         path.get('body').unshiftContainer('body', logStatement);
       }
     }
@@ -83,7 +87,7 @@ const code = `
 `;
 
 const result = babel.transformSync(code, {
-  plugins: [templatePlugin]
+  plugins: [manualAstPlugin]
 });
 
 console.log(chalk.green('转换后:'));

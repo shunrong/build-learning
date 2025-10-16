@@ -4,15 +4,45 @@
  */
 
 module.exports = function(babel) {
-  const { types: t, template } = babel;
+  const { types: t } = babel;
   
-  const buildEnterTrack = template(`
-    TRACK_FUNC(FUNC_NAME, 'enter', { args: ARGS });
-  `);
+  // 构建 enter 埋点: _track(funcName, 'enter', { args: [...] })
+  function buildEnterTrack(trackFunction, funcName, argsArray) {
+    return t.expressionStatement(
+      t.callExpression(
+        t.identifier(trackFunction),
+        [
+          t.stringLiteral(funcName),
+          t.stringLiteral('enter'),
+          t.objectExpression([
+            t.objectProperty(
+              t.identifier('args'),
+              argsArray
+            )
+          ])
+        ]
+      )
+    );
+  }
   
-  const buildExitTrack = template(`
-    TRACK_FUNC(FUNC_NAME, 'exit', { result: RESULT });
-  `);
+  // 构建 exit 埋点: _track(funcName, 'exit', { result: resultVar })
+  function buildExitTrack(trackFunction, funcName, resultVar) {
+    return t.expressionStatement(
+      t.callExpression(
+        t.identifier(trackFunction),
+        [
+          t.stringLiteral(funcName),
+          t.stringLiteral('exit'),
+          t.objectExpression([
+            t.objectProperty(
+              t.identifier('result'),
+              resultVar
+            )
+          ])
+        ]
+      )
+    );
+  }
   
   return {
     name: 'auto-track',
@@ -44,34 +74,37 @@ module.exports = function(babel) {
         );
         
         // 在函数开头插入 enter 埋点
-        const enterTrack = buildEnterTrack({
-          TRACK_FUNC: t.identifier(trackFunction),
-          FUNC_NAME: t.stringLiteral(id.name),
-          ARGS: argsArray
-        });
-        
+        const enterTrack = buildEnterTrack(trackFunction, id.name, argsArray);
         body.body.unshift(enterTrack);
         
         // 为所有 return 语句添加 exit 埋点
         path.traverse({
           ReturnStatement(returnPath) {
+            // 避免重复处理已经处理过的 return 语句
+            if (returnPath.node._tracked) {
+              return;
+            }
+            
             const { argument } = returnPath.node;
+            
+            // 先标记，避免重复处理
+            returnPath.node._tracked = true;
             
             if (argument) {
               const resultVar = returnPath.scope.generateUidIdentifier('result');
               
-              const exitTrack = buildExitTrack({
-                TRACK_FUNC: t.identifier(trackFunction),
-                FUNC_NAME: t.stringLiteral(id.name),
-                RESULT: resultVar
-              });
+              const exitTrack = buildExitTrack(trackFunction, id.name, resultVar);
+              
+              // 标记新创建的 return 节点，避免重复遍历
+              const newReturn = t.returnStatement(resultVar);
+              newReturn._tracked = true;
               
               returnPath.replaceWithMultiple([
                 t.variableDeclaration('const', [
                   t.variableDeclarator(resultVar, argument)
                 ]),
                 exitTrack,
-                t.returnStatement(resultVar)
+                newReturn
               ]);
             }
           }
