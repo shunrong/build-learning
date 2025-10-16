@@ -1,0 +1,16 @@
+{
+  "name": "01-biome-demo",
+  "version": "1.0.0",
+  "description": "Biome 统一工具链演示",
+  "type": "module",
+  "scripts": {
+    "check": "biome check src/",
+    "fix": "biome check src/ --apply",
+    "format": "biome format src/ --write",
+    "lint": "biome lint src/"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.4.0"
+  }
+}
+

@@ -1,0 +1,48 @@
+.counter {
+  padding: 2rem;
+}
+
+.counter h2 {
+  margin-bottom: 2rem;
+  color: #646cff;
+}
+
+.counter-display {
+  margin: 2rem 0;
+}
+
+.counter-display .count {
+  font-size: 4em;
+  font-weight: bold;
+  color: #fff;
+  display: inline-block;
+  min-width: 100px;
+  padding: 0.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.counter-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.counter-buttons button {
+  min-width: 80px;
+  font-size: 1.2em;
+}
+
+.counter-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.counter-info p {
+  margin: 0.5rem 0;
+  font-size: 1.1em;
+}
+

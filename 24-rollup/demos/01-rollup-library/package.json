@@ -1,0 +1,30 @@
+{
+  "name": "math-utils-lib",
+  "version": "1.0.0",
+  "description": "A simple math utility library built with Rollup",
+  "main": "dist/math-utils.cjs.js",
+  "module": "dist/math-utils.esm.js",
+  "browser": "dist/math-utils.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.0",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "rollup": "^4.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "math",
+    "utils",
+    "rollup"
+  ]
+}
+
